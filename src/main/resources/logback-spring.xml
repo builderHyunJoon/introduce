@@ -4,18 +4,18 @@
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%-5level] [%thread] [%class{36}.%M %L] - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] [%class{36}.%M %L] - %msg%n</pattern>
         </encoder>
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH:-.}/${projectName}_${HOSTNAME}_%d{yyyy-MM-dd}.log.%i</fileNamePattern>
+            <fileNamePattern>${LOG_PATH:-.}/${projectName}_${HOSTNAME}_%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>90</maxHistory>
             <timeBasedFileNamingEnabled>true</timeBasedFileNamingEnabled>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] [%class{36}.%M %L] - %msg%n</pattern>
         </encoder>
     </appender>
 
