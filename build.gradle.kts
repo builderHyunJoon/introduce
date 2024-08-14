@@ -24,7 +24,6 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.ua-parser:uap-java:1.6.1")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-web")
