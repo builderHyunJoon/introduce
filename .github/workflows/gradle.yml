@@ -71,10 +71,13 @@ jobs:
         run: aws s3 cp introduce.zip s3://${{ secrets.S3_BUCKET_NAME }}/application/${{ github.sha }}/introduce.zip
 
       - name: Deploy to EC2 with CodeDeploy
-        uses: aws-actions/aws-codedeploy-action@v1.0.5
+        uses: aws-actions/aws-codedeploy-deploy@v2 # 수정된 부분
         with:
           application-name: ${{ secrets.CODEDEPLOY_APPLICATION_NAME }}
           deployment-group-name: ${{ secrets.CODEDEPLOY_DEPLOYMENT_GROUP_NAME }}
           deployment-config-name: CodeDeployDefault.OneAtATime
           revision-type: S3
-          s3-location: "${{ secrets.S3_BUCKET_NAME }}/application/${{ github.sha }}/introduce.zip"
+          s3-location: # 수정된 부분
+            bucket: ${{ secrets.S3_BUCKET_NAME }}
+            key: application/${{ github.sha }}/introduce.zip
+            bundle-type: zip
