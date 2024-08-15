@@ -43,7 +43,7 @@ jobs:
           cp build/libs/introduce-*.jar deploy/
           cd deploy
           zip -r introduce.zip .
-          mv introduce.zip ../
+          mv introduce.zip .
 
       - uses: actions/upload-artifact@v4
         with:
