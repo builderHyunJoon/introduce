@@ -26,7 +26,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Cache Gradle packages
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.gradle/caches
@@ -39,7 +39,7 @@ jobs:
         run: ./gradlew bootJar
 
       - name: Archive the artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: introduce
           path: build/libs/*.jar
@@ -52,7 +52,7 @@ jobs:
 
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: introduce
           path: introduce.jar
@@ -71,7 +71,7 @@ jobs:
         run: aws s3 cp introduce.zip s3://${{ secrets.S3_BUCKET_NAME }}/application/${{ github.sha }}/introduce.zip
 
       - name: Deploy to EC2 with CodeDeploy
-        uses: aws-actions/aws-codedeploy-deploy@v2
+        uses: aws-actions/aws-codedeploy-github-action@v1.0.5
         with:
           application-name: ${{ secrets.CODEDEPLOY_APPLICATION_NAME }}
           deployment-group-name: ${{ secrets.CODEDEPLOY_DEPLOYMENT_GROUP_NAME }}
