@@ -3,6 +3,9 @@
 APPLICATION_DIR=/home/ubuntu/application
 cd $APPLICATION_DIR
 
+# 압축 해제
+unzip -o introduce.zip
+
 # JAR 파일 경로 찾기
 JAR_NAME=$(find $APPLICATION_DIR -name '*.jar' | tail -n 1)
 JAR_PATH=$JAR_NAME
