@@ -54,9 +54,6 @@ jobs:
           name: introduce
           path: introduce.jar
 
-      - name: Zip artifact
-        run: zip introduce.zip introduce.jar
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -64,8 +61,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Upload to S3
-        run: aws s3 cp introduce.zip s3://${{ secrets.S3_BUCKET_NAME }}/application/${{ github.sha }}/introduce.zip
+      - name: Upload JAR to S3
+        run: aws s3 cp introduce.jar s3://${{ secrets.S3_BUCKET_NAME }}/application/${{ github.sha }}/introduce.jar
 
       - name: Deploy to EC2 with CodeDeploy
         run: |
@@ -73,4 +70,4 @@ jobs:
             --application-name ${{ secrets.CODEDEPLOY_APPLICATION_NAME }} \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --deployment-group-name ${{ secrets.CODEDEPLOY_DEPLOYMENT_GROUP_NAME }} \
-            --s3-location bucket=${{ secrets.S3_BUCKET_NAME }},bundleType=zip,key=application/${{ github.sha }}/introduce.zip
+            --s3-location bucket=${{ secrets.S3_BUCKET_NAME }},bundleType=jar,key=application/${{ github.sha }}/introduce.jar
