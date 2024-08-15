@@ -1,5 +1,5 @@
 #!/bin/bash
-
+source ~/.bashrc
 APPLICATION_DIR=/home/ubuntu/application
 cd $APPLICATION_DIR
 
