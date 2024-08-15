@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 
 files:
-  - source: introduce.zip  # S3에서 다운로드된 ZIP 파일을 직접 복사
+  - source: /  # S3에서 다운로드된 ZIP 파일을 직접 복사
     destination: /home/ubuntu/application
     overwrite: yes
 

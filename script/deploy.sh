@@ -3,16 +3,14 @@
 APPLICATION_DIR=/home/ubuntu/application
 cd $APPLICATION_DIR
 
-# 압축 해제
-unzip -o introduce.zip
-
 # JAR 파일 경로 찾기
-JAR_PATH=$APPLICATION_DIR/introduce-0.0.1-SNAPSHOT.jar
+JAR_NAME=$(find $APPLICATION_DIR -name '*.jar' | tail -n 1)
+JAR_PATH=$JAR_NAME
 
 # 현재 실행 중인 애플리케이션 프로세스 ID 찾기
-CURRENT_PID=$(netstat -tulpn | grep :8080 | awk '{print $7}' | cut -d'/' -f1)
+CURRENT_PID=$(pgrep -fl java | grep $JAR_NAME | awk '{print $1}')
 
-if [ -n "$CURRENT_PID" ]; then
+if [ -z "$CURRENT_PID" ]; then
     echo "애플리케이션이 실행 중이지 않습니다."
 else
     echo "> kill -9 $CURRENT_PID"
