@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: introduce
-          path: build/libs/joon-0.0.1-SNAPSHOT.jar
+          path: build/libs/introduce-*.jar
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,11 +52,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: introduce
-          path: joon-0.0.1-SNAPSHOT.jar
+          path: introduce.jar
 
       - name: Verify downloaded file
         run: |
-          if [ ! -f joon-0.0.1-SNAPSHOT.jar ]; then
+          if [ ! -f introduce.jar ]; then
             echo "JAR 파일을 찾을 수 없습니다."
             exit 1
           fi
@@ -69,7 +69,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Upload JAR to S3
-        run: aws s3 cp joon-0.0.1-SNAPSHOT.jar s3://${{ secrets.S3_BUCKET_NAME }}/application/joon-0.0.1-SNAPSHOT.jar
+        run: aws s3 cp introduce.jar s3://${{ secrets.S3_BUCKET_NAME }}/application/introduce.jar
 
       - name: Deploy to EC2 with CodeDeploy
         run: |
@@ -77,4 +77,4 @@ jobs:
             --application-name ${{ secrets.CODEDEPLOY_APPLICATION_NAME }} \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --deployment-group-name ${{ secrets.CODEDEPLOY_DEPLOYMENT_GROUP_NAME }} \
-            --s3-location bucket=${{ secrets.S3_BUCKET_NAME }},bundleType=jar,key=application/joon-0.0.1-SNAPSHOT.jar
+            --s3-location bucket=${{ secrets.S3_BUCKET_NAME }},bundleType=zip,key=application/introduce.jar
