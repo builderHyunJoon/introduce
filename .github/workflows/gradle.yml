@@ -41,6 +41,8 @@ jobs:
         run: |
           mkdir -p deploy
           cp build/libs/introduce-*.jar deploy/
+          cp appspec.yml deploy/
+          cp -r scripts deploy/
           cd deploy
           zip -r introduce.zip .
           mv introduce.zip ../
@@ -59,7 +61,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: introduce
-          path:
 
       - name: List files in directory (디버깅용)
         run: ls -l
