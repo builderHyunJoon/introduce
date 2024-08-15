@@ -67,6 +67,15 @@ jobs:
       - name: Upload to S3
         run: aws s3 cp introduce.zip s3://${{ secrets.S3_BUCKET_NAME }}/application/${{ github.sha }}/introduce.zip
 
+      - name: Cancel active deployments if any
+        run: |
+          DEPLOYMENTS=$(aws deploy list-deployments --application-name ${{ secrets.CODEDEPLOY_APPLICATION_NAME }} --deployment-group-name ${{ secrets.CODEDEPLOY_DEPLOYMENT_GROUP_NAME }} --include-only-statuses InProgress)
+          if [ "$DEPLOYMENTS" != "[]" ]; then
+            DEPLOYMENT_ID=$(echo $DEPLOYMENTS | jq -r '.deployments[0]')
+            echo "Cancelling active deployment: $DEPLOYMENT_ID"
+            aws deploy stop-deployment --deployment-id $DEPLOYMENT_ID --auto-rollback
+          fi
+
       - name: Deploy to EC2 with CodeDeploy
         run: |
           aws deploy create-deployment \
