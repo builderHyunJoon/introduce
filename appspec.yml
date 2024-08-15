@@ -2,18 +2,17 @@ version: 0.0
 os: linux
 
 files:
-  - source:  /
-    destination: /home/ubuntu/action
+  - source: /  # S3에서 다운로드된 JAR 파일을 직접 복사
+    destination: /home/ubuntu/application
     overwrite: yes
 
 permissions:
-  - object: /home/ubuntu/action
+  - object: /home/ubuntu/application
     pattern: "**"
     owner: ubuntu
     group: ubuntu
 
 hooks:
-
   ApplicationStart:
     - location: script/deploy.sh
       timeout: 60
