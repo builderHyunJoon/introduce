@@ -37,11 +37,20 @@ jobs:
       - name: Build with Gradle Wrapper
         run: ./gradlew bootJar
 
-      - name: Archive the artifact
-        uses: actions/upload-artifact@v4
+      - name: Archive the artifact (ZIP으로 압축)
+        run: |
+          mkdir -p deploy
+          cp build/libs/introduce-*.jar deploy/
+          cp appspec.yml deploy/
+          cp -r script deploy/
+          cd deploy
+          zip -r introduce.zip .
+          mv introduce.zip ../
+
+      - uses: actions/upload-artifact@v4
         with:
           name: introduce
-          path: build/libs/*.jar
+          path: introduce.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,10 +61,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: introduce
-          path: introduce
 
       - name: List files in directory (디버깅용)
-        run: ls -l introduce
+        run: ls -l
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -64,12 +72,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Upload JAR to S3
-        run: |
-          # introduce 디렉토리 안의 introduce-*.jar 파일을 찾습니다.
-          JAR_FILE=$(ls introduce/introduce-*.jar)
-          # 찾은 JAR 파일을 S3에 업로드합니다.
-          aws s3 cp $JAR_FILE s3://${{ secrets.S3_BUCKET_NAME }}/application/introduce.jar
+      - name: Upload ZIP to S3
+        run: aws s3 cp introduce.zip s3://${{ secrets.S3_BUCKET_NAME }}/application/introduce.zip
 
       - name: Deploy to EC2 with CodeDeploy
         run: |
@@ -77,4 +81,4 @@ jobs:
             --application-name ${{ secrets.CODEDEPLOY_APPLICATION_NAME }} \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --deployment-group-name ${{ secrets.CODEDEPLOY_DEPLOYMENT_GROUP_NAME }} \
-            --s3-location bucket=${{ secrets.S3_BUCKET_NAME }},bundleType=jar,key=application/introduce.jar
+            --s3-location bucket=${{ secrets.S3_BUCKET_NAME }},bundleType=zip,key=application/introduce.zip
