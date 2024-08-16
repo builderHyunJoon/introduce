@@ -1,5 +1,5 @@
 #!/bin/bash
-
+source ~/.bashrc
 APPLICATION_DIR=/home/ubuntu/application
 cd $APPLICATION_DIR
 
@@ -11,15 +11,15 @@ JAR_PATH=$JAR_NAME
 CURRENT_PID=$(pgrep -fl java | grep $JAR_NAME | awk '{print $1}')
 
 if [ -z "$CURRENT_PID" ]; then
-    echo "애플리케이션이 실행 중이지 않습니다."
+    echo "No application is running."
 else
     echo "> kill -9 $CURRENT_PID"
     kill -9 $CURRENT_PID
     sleep 5
 fi
 
-echo "> $JAR_PATH 에 실행 권한 추가"
+echo "> $JAR_PATH add auth"
 chmod +x $JAR_PATH
 
-echo "> $JAR_PATH 배포"
-java -jar -Duser.timezone=Asia/Seoul $JAR_PATH &
+echo "> $JAR_PATH deploy"
+nohup java -jar -Duser.timezone=Asia/Seoul $JAR_PATH > /dev/null 2>&1 &
