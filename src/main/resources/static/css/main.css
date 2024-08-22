@@ -265,7 +265,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(https://unsplash.imgix.net/uploads%2F14115408840644deb16b0%2F2dc933e3?q=75&fm=jpg&auto=format&s=7f43646e4d26049c6c39890afb2e5ced);
+    background-image: url('../images/bg_top.webp');
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -285,6 +285,7 @@ header .intro-text .intro-lead-in {
     font-size: 22px;
     font-style: italic;
     line-height: 22px;
+    text-shadow: 5px 5px 10px rgba(0,0,0,0.8);
 }
 
 header .intro-text .intro-heading {
@@ -294,6 +295,7 @@ header .intro-text .intro-heading {
     font-size: 50px;
     font-weight: 700;
     line-height: 50px;
+    text-shadow: 5px 5px 10px rgba(0,0,0,0.8);
 }
 
 @media(min-width:768px) {
@@ -650,9 +652,10 @@ section h3.section-subheading {
 
 section#contact {
     background-color: #222;
-    background-image: url(https://unsplash.imgix.net/44/C3EWdWzT8imxs0fKeKoC_blackforrest.JPG?q=75&fm=jpg&auto=format&s=986aaa92169d4e97975fa66ebd60bafd);
+    background-image: url('../images/bg_bottom.webp');
     background-position: center;
     background-repeat: no-repeat;
+    text-shadow:5px 5px 10px rgba(0,0,0,0.8);
 }
 
 section#contact .section-heading {
