@@ -364,6 +364,12 @@ section h3.section-subheading {
     max-width: 400px;
 }
 
+#portfolio .portfolio-item .img-responsive {
+    width: 100%; /* 이미지의 너비를 포트폴리오 항목의 100%로 설정 */
+    height: 200px; /* 이미지의 고정 높이를 설정 */
+    object-fit: cover; /* 이미지를 고정된 크기에 맞춰 자르기 */
+}
+
 #portfolio .portfolio-item .portfolio-link .portfolio-hover {
     position: absolute;
     width: 100%;

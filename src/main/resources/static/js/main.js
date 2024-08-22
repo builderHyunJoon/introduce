@@ -17,3 +17,19 @@ $('body').scrollspy({
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+$(document).ready(function () {
+    (function ($) {
+        $.fn.writeText = function (content) {
+            var contentArray = content.split(""),
+                current = 0,
+                elem = this;
+            setInterval(function () {
+                if (current < contentArray.length) {
+                    elem.text(elem.text() + contentArray[current++]);
+                }
+            }, 120);
+        };
+    })(jQuery);
+    $("#writeText").writeText("백엔드 & 웹 개발자, 최현준입니다.");
+});
