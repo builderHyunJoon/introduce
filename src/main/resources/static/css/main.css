@@ -284,8 +284,9 @@ header .intro-text .intro-lead-in {
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 22px;
     font-style: italic;
+    font-weight: bolder;
     line-height: 22px;
-    text-shadow: 5px 5px 10px rgba(0,0,0,0.8);
+    text-shadow: 6px 5px 10px rgba(0,0,0,0.8);
 }
 
 header .intro-text .intro-heading {
@@ -347,7 +348,7 @@ section h3.section-subheading {
     }
 }
 
-.service-heading {
+.license-heading {
     margin: 15px 0;
     text-transform: none;
 
