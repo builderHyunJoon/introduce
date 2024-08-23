@@ -350,6 +350,7 @@ section h3.section-subheading {
 .service-heading {
     margin: 15px 0;
     text-transform: none;
+
 }
 
 #portfolio .portfolio-item {
@@ -635,23 +636,27 @@ section h3.section-subheading {
     }
 }
 
-.team-member {
+.profile {
     margin-bottom: 50px;
     text-align: center;
 }
 
-.team-member img {
+.profile img {
     margin: 0 auto;
     border: 7px solid #fff;
 }
 
-.team-member h4 {
+.profile h4 {
     margin-top: 25px;
     margin-bottom: 0;
     text-transform: none;
 }
 
-.team-member p {
+.profile p {
+    margin-top: 0;
+}
+
+.profile p {
     margin-top: 0;
 }
 
@@ -666,6 +671,17 @@ section#contact {
 
 section#contact .section-heading {
     color: #fff;
+}
+
+section#contact .section-subheading {
+    color: white;
+    margin-bottom: 25px;
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    font-style: italic;
+    line-height: 22px;
+    text-shadow: 5px 5px 10px rgba(0,0,0,0.8);
 }
 
 section#contact .form-group {
