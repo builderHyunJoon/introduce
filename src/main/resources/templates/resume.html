@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ1GSCS8B4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NJ1GSCS8B4');
+    </script>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+    <title>Joon's resume</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/resume.js}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/resume.css}">
+</head>
+
+<body id="page-top">
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">Joon's resume</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden active">
+                    <a href="#page-top"></a>
+                </li>
+                <li class="">
+                    <a class="page-scroll" href="#profile">Profile</a>
+                </li>
+                <li class="">
+                    <a class="page-scroll" href="#license">License</a>
+                </li>
+                <li class="">
+                    <a class="page-scroll" href="#career">Career</a>
+                </li>
+                <li class="">
+                    <a class="page-scroll" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="">
+                    <a class="page-scroll" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in">안녕하세요. 방문해주셔서 감사합니다.</div>
+            <div id="writeText" class="intro-heading"></div>
+            <a href="#page-top" class="page-scroll btn btn-xl">Download resume</a>
+        </div>
+    </div>
+</header>
+
+<!--프로필 섹션-->
+<section id="profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-primary">프로필</h2>
+                <h3 class="section-subheading text-muted">주니어 백엔드 개발자 최현준의 프로필입니다.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="profile">
+                    <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/sample_profile.webp" class="img-responsive img-circle" alt="">
+                    <h4>최 현 준</h4>
+                    <h5 class="text-muted">백엔드 & 웹 애플리케이션 개발자</h5>
+                    <p class="text-muted"><i class="bi bi-envelope-at"></i> builder_joon@kakao.com</p>
+                    <ul class="list-inline social-buttons">
+                        <li><a href="https://github.com/h311diver/portfolio" target="_blank"><i class="bi bi-git"></i></a>
+                        </li>
+                        <li><a href="https://github.com/builderHyunJoon" target="_blank"><i class="bi bi-github"></i></a>
+                        </li>
+                        <li><a href="https://builderjoon.com" target="_blank"><i class="bi bi-house-door"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <h3 class="text-primary">List of Technologies and Tools Used/Experienced</h3>
+                <div class="col-12 col-md-6">
+                    <h4>ㆍLanguages</h4>
+                    <p class="text-muted">Java8, Java17, JavaScript (JS)</p>
+                    <h4>ㆍFrameworks</h4>
+                    <p class="text-muted">Spring, Spring Boot</p>
+                    <h4>ㆍORM</h4>
+                    <p class="text-muted">MyBatis, JPA</p>
+                    <h4>ㆍBuild Tools</h4>
+                    <p class="text-muted">Maven, Gradle-Kotlin</p>
+                    <h4>ㆍVersion Control Systems</h4>
+                    <p class="text-muted">GitHub, Gitea, GitLab, SVN</p>
+                    <h4>ㆍCI/CD Tools</h4>
+                    <p class="text-muted">Jenkins</p>
+                    <h4>ㆍContainer Orchestration</h4>
+                    <p class="text-muted">Kubernetes, OpenShift</p>
+                    <h4>ㆍServer OS</h4>
+                    <p class="text-muted">RHEL, CentOS7, Ubuntu</p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h4>ㆍCloud Platforms</h4>
+                    <p class="text-muted">AWS (EC2, RDS, S3, Route53, ELB, CodePipeline...)</p>
+                    <h4>ㆍRDBMS</h4>
+                    <p class="text-muted">PostgreSQL, Oracle, MySQL</p>
+                    <h4>ㆍNoSQL DBMS</h4>
+                    <p class="text-muted">Redis</p>
+                    <h4>ㆍIDE</h4>
+                    <p class="text-muted">Eclipse, STS4, IntelliJ Ultimate</p>
+                    <h4>ㆍCode Editors</h4>
+                    <p class="text-muted">VSCode</p>
+                    <h4>ㆍAPI Testing Tools</h4>
+                    <p class="text-muted">Postman</p>
+                    <h4>ㆍDatabase Access Tools</h4>
+                    <p class="text-muted">DBeaver, pgAdmin4</p>
+                    <h4>ㆍWeb Analytics Tools</h4>
+                    <p class="text-muted">Google Analytics</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-12 col-md-4">
+                    <h3 class="text-primary">Experience</h3>
+                    <h4>ㆍ2013.03 ~ 2016.02</h4>
+                    <p class="text-muted">부가설명</p>
+                    <h4>ㆍ2017.03 ~ 2019.02</h4>
+                    <p class="text-muted">부가설명</p>
+                    <h4>ㆍ2021.08 ~ 2022.02</h4>
+                    <p class="text-muted">부가설명</p>
+                    <h4>ㆍ2022.03 ~ 2023.06</h4>
+                    <p class="text-muted">부가설명</p>
+                    <h4>ㆍ2023.08 ~</h4>
+                    <p class="text-muted">부가설명</p>
+                </div>
+                <div class="col-12 col-md-8">
+                    <h3 class="text-primary">Introduction</h3>
+                    <h4>ㆍ특징1</h4>
+                    <p class="text-muted">부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명</p>
+                    <h4>ㆍ특징2</h4>
+                    <p class="text-muted">부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명</p>
+                    <h4>ㆍ특징3</h4>
+                    <p class="text-muted">부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명</p>
+                    <h4>ㆍ특징4</h4>
+                    <p class="text-muted">부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명 부가설명</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--자격증 섹션-->
+<section id="license" class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-primary">보유 자격증</h2>
+                <h3 class="section-subheading text-muted">보유한 자격증 목록과 정보입니다.</h3>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <i class="bi bi-award-fill"></i>
+                <h4 class="license-heading">정보처리기사</h4>
+                <p class="text-muted">취득일자: 2024.09.10</p>
+                <p class="text-muted">자격증 번호: 발표 예정</p>
+                <p class="text-muted">비고: 부가 설명</p>
+            </div>
+            <div class="col-md-3">
+                <i class="bi bi-award-fill"></i>
+                <h4 class="license-heading">리눅스마스터 2급</h4>
+                <p class="text-muted">취득일자: 2024.06.28</p>
+                <p class="text-muted">자격증 번호: LMS-2402-008503</p>
+                <p class="text-muted">비고: 부가 설명</p>
+            </div>
+            <div class="col-md-3">
+                <i class="bi bi-award-fill"></i>
+                <h4 class="license-heading">SQLD</h4>
+                <p class="text-muted">취득일자: 2024.06.21</p>
+                <p class="text-muted">자격증 번호: SQLD-053010511</p>
+                <p class="text-muted">비고: 부가 설명</p>
+            </div>
+            <div class="col-md-3">
+                <i class="bi bi-award-fill"></i>
+                <h4 class="license-heading">정보처리산업기사</h4>
+                <p class="text-muted">취득일자: 2023.03.10</p>
+                <p class="text-muted">자격증 번호: 23251010045T</p>
+                <p class="text-muted">비고: 부가 설명</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--경력 기술 세션-->
+<section id="career">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-primary">경력 사항</h2>
+                <h3 class="section-subheading text-muted">개발자로서의 꿈을 가지고 교육을 받은 시점부터 현재까지의 경력을 기술한 내용입니다.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image">
+                            <h4><br>교육 과정</h4>
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2021.08 ~ 2022.02</h4>
+                                <h4 class="subheading">교육 과정: JAVA 웹프로그래밍 개발자 교육 (국가기술자격 [과정평가형] 800시간)</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">개발자의 꿈을 가지고 프로그래밍 언어를 통해 소프트웨어의 기능 설계, 구현, 테스트, 그리고 배포에 이르는 전 과정을 학습하였습니다. 교육 과정 속 동료 훈련생들과 협력하여 토이 프로젝트 개발을 진행하였고 이 과정을 통해 개발에 대한 적성을 확인하고 이 분야에서 나아갈 결심을 하였습니다.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4><br>날리지포인트(주)</h4>
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2022.03 ~ 2023.06</h4>
+                                <h4 class="subheading">프로젝트: 스몰오더</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">교육 수료 후 날리지포인트(주)에 입사하여 고객사인 KT의 스몰오더 서비스 프로젝트에 투입되었습니다. KT 본사에 상주하며 기존 서비스의 유지보수와 고도화 개발을 능동적으로 수행하였습니다. 입사 후 약 1년 차가 되지 않은 시점부터 팀장(과장)님의 신뢰를 얻어 야간에 혼자서 서비스 운영 배포를 진행할 정도로 뛰어난 학습력과 적응력을 인정받았습니다. 그러나 애정을 가지고 임했던 첫 프로젝트인 스몰오더 서비스의 일방적인 서비스 종료 과정 및 함께 일하던 동료들이 먼저 이직하는 상황을 경험한 후 저 역시 이직을 결정하게 되었습니다.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image">
+                            <h4><br>유아이네트웍스(주)</h4>
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2023.08 ~</h4>
+                                <h4 class="subheading">프로젝트: 서울톡</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">유아이네트웍스(주)에 입사하여 서울시의 서울톡 서비스 프로젝트에 투입되었습니다. 프로젝트에 투입 직후 서버, DB, 애플리케이션 상에서 발생하는 다양한 문제를 직면하고 능동적으로 이를 해결함으로서 '해결사'라는 별명을 얻었습니다. 특히 기존의 단일 서버 환경에서 이중화 서버 구축을 제안하여 서비스 무중단 배포를 성공적으로 진행하였습니다. 매일 서버 및 애플리케이션의 작일 로그를 모니터링하여 지시받은 업무 외에도 모든 모듈의 소스코드 리팩토링을 추가로 수행하여 프로젝트가 안정화 상태에 놓이도록 했습니다. 또한 프로젝트 담당자 및 협업 관계인 서비스들의 담당자들과 원활한 커뮤니케이션을 통해 팀장(차장)님의 신뢰를 받으며 대무자 역할을 수행했습니다.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4><br>유아이네트웍스(주)</h4>
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2023.10 ~ 2023.01</h4>
+                                <h4 class="subheading">프로젝트: 동아일보 출퇴근계산기</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">서울톡 운영 업무와 병행하여 동아일보의 출퇴근 계산기 서비스 구축 프로젝트를 맡았습니다. 퍼블리싱을 제외한 모든 개발 작업을 책임졌으며 동아일보사의 AWS 루트 계정을 받아 서버 및 데이터베이스 구축, 자동 배포 시스템 구축을 단독으로 수행했습니다. 이후에는 구글 애널리틱스를 적용하여 사용자 유입을 모니터링하는 작업까지 진행했습니다.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4><br>Onward...</h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--포트폴리오 섹션-->
+<section id="portfolio" class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-primary">참여 프로젝트</h2>
+                <h3 class="section-subheading text-muted">현재까지 참여한 프로젝트와 사용 기술을 정리한 내용입니다.<br>이미지를 클릭 시 상세 설명을 확인하실 수 있습니다.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/toy_websocket.gif" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>토이 프로젝트</h4>
+                    <p class="text-muted">개발자 교육 과정 중 진행한 프로젝트에서 개인적으로 추가 개발을 진행한 웹페이지.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/chatbot_smallorder.jpg" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>챗봇 스몰오더</h4>
+                    <p class="text-muted">KT협력사 소속으로서 KT본사에 상주하며 운영 및 개발을 진행한 KT 챗봇 스몰오더 서비스.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/web_smallorder_main.png" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>웹 스몰오더</h4>
+                    <p class="text-muted">기존 챗봇 스몰오더의 단점을 보완하여 고도화 개발을 진행한 웹 스몰오더 서비스.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/seoultalk.jpg" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>서울톡</h4>
+                    <p class="text-muted">서울시 S-PlexCenter에 상주하며 운영 및 고도화 개발을 진행한 서울톡 서비스.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/commute_donga.jpg" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>동아일보 출퇴근계산기</h4>
+                    <p class="text-muted">퍼블리싱을 제외한 모든 개발은 물론 AWS를 이용한 구축까지 혼자 도맡아서 배포한 서비스.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="https://unsplash.imgix.net/uploads%2F1411419068566071cef10%2F7562527b?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=240c45655f09c546232a6f106688e502" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>builderjoon.com</h4>
+                    <p class="text-muted">경험하지 않은 기술 스택 습득을 목표로 하여 개발 진행, AWS로 구축한 개인 웹사이트.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--이메일 발송 섹션-->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">CONTACT TO ME</h2>
+                <h3 class="section-subheading">모든 양식을 작성하신 후 하단 버튼을 클릭하시면 Google SMTP를 통해 메일이 발송됩니다.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <form name="sentMessage" id="contactForm" novalidate="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Subject *" id="subject" required data-validation-required-message="Please enter a subject.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center">
+                            <div id="success"></div>
+                            <button type="submit" class="btn btn-xl">Send Email</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="list-inline quicklinks">
+                    <li><span class="copyright">© 2024 Joon.</span></li>
+                    <li><span class="copyright">이메일: builder_joon@kakao.com</span></li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons">
+                    <li><a href="#"><i class="bi bi-git"></i></a>
+                    </li>
+                    <li><a href="#"><i class="bi bi-github"></i></a>
+                    </li>
+                    <li><a href="https://builderjoon.com"><i class="bi bi-house-door"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline quicklinks">
+                    <li><a href="#">Send SMS to me</a>
+                    </li>
+                    <li><a href="#">Send kakaotalk to me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--참여 프로젝트 상세 정보 모달창-->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>쇼핑몰 프로젝트</h2>
+                        <p class="item-intro text-muted">JAVA 웹프로그래밍 개발자 교육 과정 진행 중 동료 훈련생들과 협력하여 진행한 토이 프로젝트에서 개인적으로 추가 개발을 진행한 토이 프로젝트.</p>
+                        <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/toy_websocket.gif" alt="WebSocket Toy Project" class="img-responsive img-centered">
+                        <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/toy_calendar.png" alt="Calendar Toy Project" class="img-responsive img-centered">
+                        <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/toy_excel.png" alt="Excel Toy Project" class="img-responsive img-centered">
+                        <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/toy_pay.png" alt="Payment Toy Project" class="img-responsive img-centered">
+                        <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/toy_board.png" alt="Board Toy Project" class="img-responsive img-centered">
+                        <p class="item-explain">개발자 교육 과정 막바지에 동료 훈련생들과 함께 토이 프로젝트를 진행하면서 기본적인 프로그래밍인 코드 작성, DB 접근, 로컬 테스트, 형상 관리 방법, 외부 api 통신, 화면 UI 설계 등을 익혔습니다. 프로젝트를 통해 경험한 기술 스택과 사용한 툴은 아래와 같습니다.</p>
+                        <ul class="list-block">
+                            <li><strong>Programming Language: </strong>Java8, JS</li>
+                            <li><strong>Framework: </strong>Spring</li>
+                            <li><strong>Template Engine: </strong>JSP & JSTL</li>
+                            <li><strong>Server: </strong>Tomcat</li>
+                            <li><strong>DBMS: </strong>Oracle</li>
+                            <li><strong>ORM: </strong>MyBatis</li>
+                            <li><strong>Build Tool: </strong>Maven</li>
+                            <li><strong>Version Control System: </strong>GitHub</li>
+                            <li><strong>IDE: </strong>Eclipse</li>
+                            <li><strong>Database Access Tool: </strong>DBeaver</li>
+                        </ul>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>챗봇 스몰오더</h2>
+                        <p class="item-intro text-muted">KT협력사 소속으로서 KT본사에 상주하며 운영 및 개발을 진행한 KT 챗봇 스몰오더 서비스.</p>
+                        <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/chatbot_smallorder.jpg" alt="chatbot_smallorder" class="img-responsive img-centered">
+                        <p class="item-explain">삼성 RCS를 활용하여 회원가입과 로그인 없이 챗봇으로 미리 주문할 수 있는 스몰오더 서비스 프로젝트에 투입되어 운영 및 고도화 개발을 진행하였습니다. 서비스 운영과 담당자 및 협력 관계 개발자들과의 커뮤니케이션, Jenkins와 K8S를 활용한 CI/CD 파이프라인 구축 및 서비스 무중단 배포를 직접 경험하고 익혔습니다. 프로젝트를 통하여 경험한 기술 스택과 사용한 툴은 아래와 같습니다.</p>
+                        <ul class="list-block">
+                            <li><strong>Programming Language: </strong>Java8, JS</li>
+                            <li><strong>Framework: </strong>Spring Boot</li>
+                            <li><strong>Template Engine: </strong>Thymeleaf</li>
+                            <li><strong>DBMS: </strong>PostgreSQL</li>
+                            <li><strong>ORM: </strong>MyBatis</li>
+                            <li><strong>Build Tool: </strong>Maven</li>
+                            <li><strong>CI/CD Tool: </strong>Jenkins</li>
+                            <li><strong>Container Orchestration: </strong>Kubernetes, OpenShift</li>
+                            <li><strong>Server OS: </strong>RHEL</li>
+                            <li><strong>Version Control System: </strong>GitLab</li>
+                            <li><strong>IDE: </strong>STS4</li>
+                            <li><strong>Code Editor: </strong>VSCode</li>
+                            <li><strong>API Testing Tool: </strong>Postman</li>
+                            <li><strong>Database Access Tool: </strong>pgAdmin4</li>
+                        </ul>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>웹 스몰오더</h2>
+                        <p class="item-intro text-muted">기존 챗봇 스몰오더의 단점을 보완하여 고도화 개발을 진행한 웹 스몰오더 서비스.</p>
+                        <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/web_smallorder_main.png" alt="web_smallorder_main" class="img-responsive img-centered">
+                        <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/web_smallorder_sub.png" alt="web_smallorder_sub" class="img-responsive img-centered">
+                        <p class="item-explain">아이폰 사용자 고객은 서비스를 이용할 수 없다는 단점을 보완하기 위해 웹페이지를 구축하여 삼성 RCS 기능을 이용하지 못하는 아이폰 사용자 고객도 유치할 수 있도록 고도화 개발을 진행한 프로젝트입니다. 프로젝트를 통하여 경험한 기술 스택과 사용한 툴은 아래와 같습니다.</p>
+                        <ul class="list-block">
+                            <li><strong>Programming Language: </strong>Java8, JS</li>
+                            <li><strong>Framework: </strong>Spring Boot</li>
+                            <li><strong>Template Engine: </strong>Thymeleaf</li>
+                            <li><strong>DBMS: </strong>PostgreSQL</li>
+                            <li><strong>ORM: </strong>MyBatis</li>
+                            <li><strong>Build Tool: </strong>Maven</li>
+                            <li><strong>CI/CD Tool: </strong>Jenkins</li>
+                            <li><strong>Container Orchestration: </strong>Kubernetes, OpenShift</li>
+                            <li><strong>Server OS: </strong>RHEL</li>
+                            <li><strong>Version Control System: </strong>GitLab</li>
+                            <li><strong>IDE: </strong>STS4</li>
+                            <li><strong>Code Editor: </strong>VSCode</li>
+                            <li><strong>API Testing Tool: </strong>Postman</li>
+                            <li><strong>Database Access Tool: </strong>pgAdmin4</li>
+                        </ul>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>서울시 서울톡</h2>
+                        <p class="item-intro text-muted">서울시 S-PlexCenter에 상주하며 운영 및 고도화 개발을 진행한 서울톡 서비스.</p>
+                        <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/seoultalk.jpg" alt="seoultalk" class="img-responsive img-centered">
+                        <p class="item-explain">카카오 챗봇 오픈빌더를 이용하여 사용자가 챗봇에 발화를 입력 시 카카오가 데이터를 정제하여 서울톡 API를 호출, 서울톡 API가 받은 파라미터 값들로 알맞은 응답을 하면 카카오톡 챗봇으로 사용자에게 답변을 내보내는 서비스입니다. 카카오 채널 외에도 120다산과 연계하는 민원 신청 페이지, 각종 서울시에서 제공하는 정보를 확인할 수 있는 페이지, 공공서비스 및 문화행사 예약 서비스와 연동, 여러 시스템들이 보내는 알림톡 API를 구축 및 운영하였습니다. 프로젝트를 통하여 경험한 기술 스택과 사용한 툴은 아래와 같습니다.</p>
+                        <ul class="list-block">
+                            <li><strong>Programming Language: </strong>Java8, JS</li>
+                            <li><strong>Framework: </strong>Spring</li>
+                            <li><strong>Template Engine: </strong>JSP & JSTL</li>
+                            <li><strong>WebServer: </strong>WebtoB</li>
+                            <li><strong>WAS: </strong>Jeus8</li>
+                            <li><strong>DBMS: </strong>Oracle</li>
+                            <li><strong>ORM: </strong>MyBatis</li>
+                            <li><strong>Build Tool: </strong>Maven</li>
+                            <li><strong>Server OS: </strong>CentOS7, RHEL</li>
+                            <li><strong>Version Control System: </strong>SVN, Gitea</li>
+                            <li><strong>IDE: </strong>Eclipse, STS4, IntelliJ Ultimate</li>
+                            <li><strong>Code Editor: </strong>VSCode</li>
+                            <li><strong>API Testing Tool: </strong>Postman</li>
+                            <li><strong>Database Access Tool: </strong>DBeaver</li>
+                        </ul>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>동아일보 출퇴근 계산기</h2>
+                        <p class="item-intro text-muted">퍼블리싱을 제외한 모든 개발은 물론 AWS를 이용한 구축까지 혼자 도맡아서 배포한 서비스.</p>
+                        <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/commute_donga.jpg" alt="commute_donga" class="img-responsive img-centered">
+                        <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/google_analytics.png" alt="commute_donga" class="img-responsive img-centered">
+                        <p class="item-explain">서울톡 운영 업무와 병행하며 동아일보의 출퇴근 계산기 서비스 구축 프로젝트를 맡았습니다. 퍼블리싱을 제외한 모든 개발 작업을 책임졌으며 동아일보사의 AWS 루트 계정을 받아 서버 및 데이터베이스 구축, 자동 배포 시스템 구축을 단독으로 수행했습니다. 이후에는 구글 애널리틱스를 적용하여 사용자 유입을 모니터링하는 작업까지 진행했습니다. 여러 커뮤니티에서 동아일보의 출퇴근 계산기 웹페이지가 화제되었습니다. 프로젝트를 통해 경험한 기술 스택과 사용한 툴은 아래와 같습니다.</p>
+                        <p class="item-explain"><strong>동아일보 뉴스: </strong><a href="https://www.donga.com/news/Society/article/all/20231201/122432485/1">https://www.donga.com/news/Society/article/all/20231201/122432485/1</a></p>
+                        <p class="item-explain"><strong>네이버 블로그: </strong><a href="https://blog.naver.com/bbirang_/223289472848">https://blog.naver.com/bbirang_/223289472848</a></p>
+                        <p class="item-explain"><strong>다음 카페: </strong><a href="https://cafe.daum.net/subdued20club/ReHf/4680571?svc=cafeapi">https://cafe.daum.net/subdued20club/ReHf/4680571?svc=cafeapi</a></p>
+                        <p class="item-explain"><strong>티스토리: </strong><a href="https://goldtown.tistory.com/242">ttps://goldtown.tistory.com/242</a></p>
+                        <p class="item-explain"><strong>트위터: </strong><a href="https://x.com/dongamedia/status/1730082713116553611">https://x.com/dongamedia/status/1730082713116553611</a></p>
+                        <p class="item-explain"><strong>기타 커뮤니티: </strong><a href="https://gall.dcinside.com/board/view/?id=car_new1&no=8792372">https://gall.dcinside.com/board/view/?id=car_new1&no=8792372</a></p>
+
+                        <ul class="list-block">
+                            <li><strong>Programming Language: </strong>Java8, JS</li>
+                            <li><strong>Framework: </strong>Spring Boot</li>
+                            <li><strong>Template Engine: </strong>Thymeleaf</li>
+                            <li><strong>DBMS: </strong>Oracle (AWS RDS)</li>
+                            <li><strong>ORM: </strong>MyBatis</li>
+                            <li><strong>Build Tool: </strong>Maven</li>
+                            <li><strong>Cloud Platform: </strong>AWS</li>
+                            <li><strong>CI/CD Tool: </strong>AWS CodeBuild, AWS CodeDeploy, AWS CodePipeline</li>
+                            <li><strong>Server OS: </strong>Ubuntu Pro Linux (AWS EC2)</li>
+                            <li><strong>Version Control System: </strong>AWS CodeCommit</li>
+                            <li><strong>IDE: </strong>Spring Tool Suite 4</li>
+                            <li><strong>Code Editor: </strong>VSCode</li>
+                            <li><strong>API Testing Tool: </strong>Postman</li>
+                            <li><strong>Database Access Tool: </strong>DBeaver</li>
+                            <li><strong>Web Analytics Tool: </strong>Google Analytics</li>
+                        </ul>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>챗봇 스몰오더</h2>
+                        <p class="item-intro text-muted">KT협력사 소속으로서 KT본사에 상주하며 운영 및 개발을 진행한 KT 챗봇 스몰오더 서비스.</p>
+                        <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/chatbot_smallorder.jpg" alt="chatbot_smallorder" class="img-responsive img-centered">
+                        <p class="item-explain">삼성 RCS를 활용하여 회원가입과 로그인 없이 챗봇으로 미리 주문할 수 있는 스몰오더 서비스 프로젝트에 투입되어 운영 및 고도화 개발을 진행하였습니다. 서비스 운영과 담당자 및 협력 관계 개발자들과의 커뮤니케이션, Jenkins와 K8S를 활용한 CI/CD 파이프라인 구축 및 서비스 무중단 배포를 직접 경험하고 익혔습니다. 프로젝트를 통하여 경험한 기술 스택과 사용한 툴은 아래와 같습니다.</p>
+                        <ul class="list-block">
+                            <li><strong>Programming Language: </strong>Java8, JS</li>
+                            <li><strong>Framework: </strong>Spring Boot</li>
+                            <li><strong>Template Engine: </strong>Thymeleaf</li>
+                            <li><strong>DBMS: </strong>PostgreSQL</li>
+                            <li><strong>ORM: </strong>MyBatis</li>
+                            <li><strong>Build Tool: </strong>Maven</li>
+                            <li><strong>CI/CD Tool: </strong>Jenkins</li>
+                            <li><strong>Container Orchestration: </strong>Kubernetes, OpenShift</li>
+                            <li><strong>Server OS: </strong>Red Hat Enterprise Linux</li>
+                            <li><strong>Version Control System: </strong>GitLab</li>
+                            <li><strong>IDE: </strong>Spring Tool Suite 4</li>
+                            <li><strong>Code Editor: </strong>VSCode</li>
+                            <li><strong>API Testing Tool: </strong>Postman</li>
+                            <li><strong>Database Access Tool: </strong>pgAdmin 4</li>
+                        </ul>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/jquery-1.11.0.js"></script>
+<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/classie.js"></script>
+<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/cbpAnimatedHeader.js"></script>
+<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/jqBootstrapValidation.js"></script>
+<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/contact_me.js"></script>
+</body>
+</html>

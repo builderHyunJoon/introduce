@@ -20,12 +20,12 @@ public class WebController {
         VisitorInfoEntity visitorInfoEntity = VisitorInfoEntity.from(request);
         log.info("VISITOR_INFO_ENTITY: {}", visitorInfoEntity);
         visitorInfoService.saveVisitorInfo(visitorInfoEntity);
-        return "redirect:/introduce";
+        return "redirect:/resume";
     }
 
 
-    @GetMapping("/introduce")
+    @GetMapping("/resume")
     public String mainWeb() {
-        return "introduce";
+        return "resume";
     }
 }
