@@ -1,5 +1,6 @@
 package org.builder.joon.service;
 
+import lombok.RequiredArgsConstructor;
 import org.builder.joon.dto.MailMessageDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -10,16 +11,13 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class SendEmailService {
 
 	@Value("${spring.mail.username}")
     private String mailAddress;
 
 	private final JavaMailSender javaMailSender;
-
-	public SendEmailService(JavaMailSender javaMailSender) {
-		this.javaMailSender = javaMailSender;
-	}
 
 	public void sendMail(MailMessageDto mailMessageDto) {
 
