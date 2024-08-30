@@ -18,11 +18,11 @@ public class PortfolioReferenceUrlInfoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long portfolioReferenceUrlIdx;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "portfolio_name", referencedColumnName = "portfolio_name")
-    private PortfolioInfoEntity portfolioName;
-
     private String portfolioReferenceTitle;
     private String portfolioReferenceUrl;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "portfolio_name", referencedColumnName = "portfolio_name")
+    private PortfolioInfoEntity portfolioInfoEntity;
 
 }

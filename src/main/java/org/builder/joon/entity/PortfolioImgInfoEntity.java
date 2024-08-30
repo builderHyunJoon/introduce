@@ -18,11 +18,11 @@ public class PortfolioImgInfoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long portfolioImgIdx;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "portfolio_name", referencedColumnName = "portfolio_name")
-    private PortfolioInfoEntity portfolioName;
-
     private String portfolioImgUrl;
     private String portfolioImgAlt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "portfolio_name", referencedColumnName = "portfolio_name")
+    private PortfolioInfoEntity portfolioInfoEntity;
 
 }

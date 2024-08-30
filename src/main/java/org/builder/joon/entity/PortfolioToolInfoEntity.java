@@ -18,11 +18,12 @@ public class PortfolioToolInfoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long portfolioToolIdx;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "portfolio_name", referencedColumnName = "portfolio_name")
-    private PortfolioInfoEntity portfolioName;
-
     private String portfolioToolCategory;
     private String portfolioToolName;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "portfolio_name", referencedColumnName = "portfolio_name")
+    private PortfolioInfoEntity portfolioInfoEntity;
 
 }

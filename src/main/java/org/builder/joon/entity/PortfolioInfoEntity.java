@@ -13,24 +13,30 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "portfolio_info")
+@NamedEntityGraph(name = "PortfolioInfoEntity.all",
+        attributeNodes = {
+                @NamedAttributeNode("portfolioToolInfoList"),
+                @NamedAttributeNode("portfolioImgInfoList"),
+                @NamedAttributeNode("portfolioReferenceUrlInfoList")
+        })
 public class PortfolioInfoEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long portfolioIdx;
-
+    @Column(name = "portfolio_name")
     private String portfolioName;
+
+    private Long portfolioIdx;
     private String portfolioSubject;
     private String portfolioTitle;
     private String portfolioSubtitle;
     private String portfolioExplain;
 
-    @OneToMany(mappedBy = "portfolioName", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "portfolioInfoEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PortfolioToolInfoEntity> portfolioToolInfoList;
 
-    @OneToMany(mappedBy = "portfolioName", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "portfolioInfoEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PortfolioImgInfoEntity> portfolioImgInfoList;
 
-    @OneToMany(mappedBy = "portfolioName", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "portfolioInfoEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PortfolioReferenceUrlInfoEntity> portfolioReferenceUrlInfoList;
 }

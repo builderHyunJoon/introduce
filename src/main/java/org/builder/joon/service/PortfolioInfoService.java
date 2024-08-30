@@ -13,7 +13,7 @@ public class PortfolioInfoService {
 
     private final PortfolioInfoRepository portfolioInfoRepository;
 
-    public List<PortfolioInfoEntity> getAllPortfolios() {
+    public List<PortfolioInfoEntity> getAllPortfoliosWithAllData() {
         return portfolioInfoRepository.findAll();
     }
 
