@@ -1,8 +1,3 @@
-/*!
- * Start Bootstrap - Agency Bootstrap Theme (https://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
 
 body {
     overflow-x: hidden;
@@ -264,17 +259,28 @@ fieldset[disabled] .btn-xl.active {
 header {
     text-align: center;
     color: #fff;
-    background-attachment: scroll;
-    background-image: url(https://unsplash.imgix.net/uploads%2F14115408840644deb16b0%2F2dc933e3?q=75&fm=jpg&auto=format&s=7f43646e4d26049c6c39890afb2e5ced);
-    background-position: center center;
-    background-repeat: none;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+#app {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#bg-canvas-top {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 header .intro-text {
+    position: relative;
+    z-index: 1;
     padding-top: 100px;
     padding-bottom: 50px;
 }
@@ -284,7 +290,9 @@ header .intro-text .intro-lead-in {
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 22px;
     font-style: italic;
+    font-weight: bolder;
     line-height: 22px;
+    text-shadow: 6px 5px 10px rgba(0,0,0,0.8);
 }
 
 header .intro-text .intro-heading {
@@ -294,6 +302,7 @@ header .intro-text .intro-heading {
     font-size: 50px;
     font-weight: 700;
     line-height: 50px;
+    text-shadow: 5px 5px 10px rgba(0,0,0,0.8);
 }
 
 @media(min-width:768px) {
@@ -317,6 +326,12 @@ header .intro-text .intro-heading {
         font-size: 75px;
         font-weight: 700;
         line-height: 75px;
+    }
+}
+
+@media (max-width: 767px) {
+    header {
+        height: 450px;
     }
 }
 
@@ -345,9 +360,10 @@ section h3.section-subheading {
     }
 }
 
-.service-heading {
+.license-heading {
     margin: 15px 0;
     text-transform: none;
+
 }
 
 #portfolio .portfolio-item {
@@ -360,6 +376,12 @@ section h3.section-subheading {
     position: relative;
     margin: 0 auto;
     max-width: 400px;
+}
+
+#portfolio .portfolio-item .img-responsive {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover {
@@ -421,7 +443,7 @@ section h3.section-subheading {
     z-index: 2;
 }
 
-@media(min-width:767px) {
+@media(min-width:768px) {
     #portfolio .portfolio-item {
         margin: 0 0 30px;
     }
@@ -627,36 +649,64 @@ section h3.section-subheading {
     }
 }
 
-.team-member {
+.profile {
     margin-bottom: 50px;
     text-align: center;
 }
 
-.team-member img {
+.profile img {
     margin: 0 auto;
     border: 7px solid #fff;
 }
 
-.team-member h4 {
+.profile h4 {
     margin-top: 25px;
     margin-bottom: 0;
     text-transform: none;
 }
 
-.team-member p {
+.profile p {
+    margin-top: 0;
+}
+
+.profile p {
     margin-top: 0;
 }
 
 
 section#contact {
-    background-color: #222;
-    background-image: url(https://unsplash.imgix.net/44/C3EWdWzT8imxs0fKeKoC_blackforrest.JPG?q=75&fm=jpg&auto=format&s=986aaa92169d4e97975fa66ebd60bafd);
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    text-shadow:5px 5px 10px rgba(0,0,0,0.8);
+}
+
+#bg-canvas-contact {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.contact-content {
+    position: relative;
+    z-index: 1;
 }
 
 section#contact .section-heading {
     color: #fff;
+}
+
+section#contact .section-subheading {
+    color: white;
+    margin-bottom: 25px;
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    font-style: italic;
+    line-height: 22px;
+    text-shadow: 5px 5px 10px rgba(0,0,0,0.8);
 }
 
 section#contact .form-group {
@@ -792,9 +842,18 @@ ul.social-buttons li a:active {
     font-style: italic;
 }
 
+.portfolio-modal .modal-content p.item-explain {
+    text-align: left;
+}
+
 .portfolio-modal .modal-content ul.list-inline {
     margin-top: 0;
     margin-bottom: 30px;
+}
+
+.portfolio-modal .modal-content ul.list-block {
+    margin-top: 0;
+    text-align: left;
 }
 
 .portfolio-modal .modal-content img {
