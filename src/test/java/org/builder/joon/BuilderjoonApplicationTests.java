@@ -35,7 +35,7 @@ class BuilderjoonApplicationTests {
 	@Test
 	void selectDataTest() throws Exception {
 		List<PortfolioInfoDto> portfolioInfoDtoList = portfolioInfoService.getAllPortfoliosWithAllData();
-		log.error("portfolioInfoDtoList: {}", portfolioInfoDtoList);
+		log.info("portfolioInfoDtoList: {}", portfolioInfoDtoList);
 	}
 
 }

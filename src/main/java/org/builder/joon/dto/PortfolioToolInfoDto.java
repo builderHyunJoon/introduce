@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PortfolioToolInfoDto {
     private Long portfolioToolIdx;
+    private String portfolioName;
     private String portfolioToolCategory;
     private String portfolioToolName;
 }
