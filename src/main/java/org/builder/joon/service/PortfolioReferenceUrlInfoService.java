@@ -13,7 +13,7 @@ public class PortfolioReferenceUrlInfoService {
 
     private final PortfolioReferenceUrlInfoRepository portfolioReferenceUrlInfoRepository;
 
-    public List<PortfolioReferenceUrlInfoEntity> getAllPortfolioReferenceUrls() {
-        return portfolioReferenceUrlInfoRepository.findAll();
+    public List<PortfolioReferenceUrlInfoEntity> getAllPortfolioReferenceUrls(String portfolioName) {
+        return portfolioReferenceUrlInfoRepository.findByPortfolioNameOrderByPortfolioReferenceUrlIdxAsc(portfolioName);
     }
 }

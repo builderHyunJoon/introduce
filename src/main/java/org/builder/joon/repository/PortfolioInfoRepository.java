@@ -8,6 +8,5 @@ import java.util.List;
 
 
 public interface PortfolioInfoRepository extends JpaRepository<PortfolioInfoEntity, Long> {
-    @EntityGraph(value = "PortfolioInfoEntity.all", type = EntityGraph.EntityGraphType.LOAD)
-    List<PortfolioInfoEntity> findAll();
+    List<PortfolioInfoEntity> findAllByOrderByPortfolioIdxAsc();
 }

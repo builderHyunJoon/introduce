@@ -13,7 +13,7 @@ public class PortfolioToolInfoService {
 
     private final PortfolioToolInfoRepository portfolioToolInfoRepository;
 
-    public List<PortfolioToolInfoEntity> getAllPortfolioTools() {
-        return portfolioToolInfoRepository.findAll();
+    public List<PortfolioToolInfoEntity> getAllPortfolioTools(String portfolioName) {
+        return portfolioToolInfoRepository.findByPortfolioNameOrderByPortfolioToolIdxAsc(portfolioName);
     }
 }

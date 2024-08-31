@@ -1,16 +1,10 @@
 package org.builder.joon.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
-@Data
+@Getter
 @Entity
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "portfolio_reference_url_info")
 public class PortfolioReferenceUrlInfoEntity {
 
@@ -18,11 +12,8 @@ public class PortfolioReferenceUrlInfoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long portfolioReferenceUrlIdx;
 
+    private String portfolioName;
     private String portfolioReferenceTitle;
     private String portfolioReferenceUrl;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "portfolio_name", referencedColumnName = "portfolio_name")
-    private PortfolioInfoEntity portfolioInfoEntity;
 
 }

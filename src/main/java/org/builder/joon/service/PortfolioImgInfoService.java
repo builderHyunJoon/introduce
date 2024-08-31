@@ -13,7 +13,7 @@ public class PortfolioImgInfoService {
 
     private final PortfolioImgInfoRepository portfolioImgInfoRepository;
 
-    public List<PortfolioImgInfoEntity> getAllPortfolioImgs() {
-        return portfolioImgInfoRepository.findAll();
+    public List<PortfolioImgInfoEntity> getAllPortfolioImgs(String portfolioName) {
+        return portfolioImgInfoRepository.findByPortfolioNameOrderByPortfolioImgIdxAsc(portfolioName);
     }
 }
