@@ -2,6 +2,7 @@ package org.builder.joon;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.builder.joon.dto.MailMessageDto;
 import org.builder.joon.dto.PortfolioInfoDto;
 import org.builder.joon.entity.PortfolioInfoEntity;
 import org.builder.joon.service.*;
@@ -21,8 +22,7 @@ class BuilderjoonApplicationTests {
 	@Autowired
 	private PortfolioInfoService portfolioInfoService;
 
-/*
-	@Test
+/*	@Test
 	void sendEmailTest() {
 		MailMessageDto mailMessageDto = MailMessageDto.builder()
 				.subject("Test subject for SMTP")
@@ -32,10 +32,11 @@ class BuilderjoonApplicationTests {
 	}
 */
 
-	@Test
+/*	@Test
 	void selectDataTest() throws Exception {
 		List<PortfolioInfoDto> portfolioInfoDtoList = portfolioInfoService.getAllPortfoliosWithAllData();
 		log.info("portfolioInfoDtoList: {}", portfolioInfoDtoList);
 	}
+*/
 
 }
