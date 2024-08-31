@@ -1,8 +1,3 @@
-/*!
- * Start Bootstrap - Agency Bootstrap Theme (https://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
 
 body {
     overflow-x: hidden;
@@ -264,17 +259,28 @@ fieldset[disabled] .btn-xl.active {
 header {
     text-align: center;
     color: #fff;
-    background-attachment: scroll;
-    background-image: url('https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/bg_top.webp');
-    background-position: center center;
-    background-repeat: none;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+#app {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#bg-canvas-top {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 header .intro-text {
+    position: relative;
+    z-index: 1;
     padding-top: 100px;
     padding-bottom: 50px;
 }
@@ -320,6 +326,12 @@ header .intro-text .intro-heading {
         font-size: 75px;
         font-weight: 700;
         line-height: 75px;
+    }
+}
+
+@media (max-width: 767px) {
+    header {
+        height: 450px;
     }
 }
 
@@ -431,7 +443,7 @@ section h3.section-subheading {
     z-index: 2;
 }
 
-@media(min-width:767px) {
+@media(min-width:768px) {
     #portfolio .portfolio-item {
         margin: 0 0 30px;
     }
@@ -663,11 +675,23 @@ section h3.section-subheading {
 
 
 section#contact {
-    background-color: #222;
-    background-image: url('https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/bg_bottom.webp');
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
     text-shadow:5px 5px 10px rgba(0,0,0,0.8);
+}
+
+#bg-canvas-contact {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.contact-content {
+    position: relative;
+    z-index: 1;
 }
 
 section#contact .section-heading {
