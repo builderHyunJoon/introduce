@@ -136,8 +136,8 @@
                 <i class="bi bi-award-fill"></i>
                 <h4 class="license-heading" th:text="${license.licenseName}"></h4>
                 <p class="text-muted"><strong th:text="${license.licenseAcquireDate}"></strong></p>
-                <p class="text-muted"><strong th:text="${license.licenseAcquireDate}"></strong></p>
-                <p class="text-muted"><strong th:text="${license.licenseAcquireDate}"></strong></p>
+                <p class="text-muted"><strong th:text="${license.licenseNumber}"></strong></p>
+                <p class="text-muted"><strong th:text="${license.licenseExplain}"></strong></p>
             </div>
         </div>
     </div>
@@ -220,25 +220,25 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form name="sentMessage" id="contactForm" novalidate="">
+                <form name="sentMessage" id="contactForm" novalidate>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                <input type="text" class="form-control" placeholder="Your Name *" id="name">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                <input type="email" class="form-control" placeholder="Your Email *" id="email">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Subject *" id="subject" required data-validation-required-message="Please enter a subject.">
+                                <input type="text" class="form-control" placeholder="Subject *" id="subject">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <textarea class="form-control" placeholder="Message *" id="message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -306,7 +306,7 @@
                             <div th:each="img : ${portfolio.portfolioImgInfoDtoList}">
                                 <img class="img-responsive img-centered" th:src="${img.portfolioImgUrl}" th:alt="${img.portfolioImgAlt}">
                             </div>
-                            <p class="item-explain" th:text="${portfolio.portfolioExplain}"></p>
+                            <p class="item-explain" th:utext="${portfolio.portfolioExplain}"></p>
                             <div th:if="${portfolio.portfolioReferenceUrlInfoDtoList.size() > 0}">
                                 <p class="item-explain reference" th:each="ref : ${portfolio.portfolioReferenceUrlInfoDtoList}">
                                     <strong th:text="${ref.portfolioReferenceTitle} + ': '"></strong>
@@ -332,6 +332,14 @@
 
 <script th:inline="javascript">
     const introHead = /*[[${dynamo.intro['head']}]]*/ '';
+    const nameValidateMsg = /*[[${dynamo.contact['nameValidateMsg']}]]*/ '';
+    const emailValidateMsg = /*[[${dynamo.contact['emailValidateMsg']}]]*/ '';
+    const emailPatternErrorMsg = /*[[${dynamo.contact['emailPatternErrorMsg']}]]*/ '';
+    const subjectValidateMsg = /*[[${dynamo.contact['subjectValidateMsg']}]]*/ '';
+    const textValidateMsg = /*[[${dynamo.contact['textValidateMsg']}]]*/ '';
+    const sendSuccessMsg = /*[[${dynamo.contact['sendSuccessMsg']}]]*/ '';
+    const sendFailMsg = /*[[${dynamo.contact['sendFailMsg']}]]*/ '';
+    const redirectUrl = /*[[${dynamo.contact['redirectUrl']}]]*/ '';
 </script>
 <script th:src="@{/js/resume.js}"></script>
 <script type="module" th:src="@{/js/bokeh.js}"></script>

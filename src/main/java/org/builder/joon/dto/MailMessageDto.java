@@ -14,4 +14,5 @@ public class MailMessageDto {
 	String from;
 	String subject;
 	String text;
+	String name;
 }

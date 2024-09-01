@@ -28,12 +28,11 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-mail")
-
-    // AWS SDK for DynamoDB
+    implementation("software.amazon.awssdk:ses:2.20.13")
+    implementation("software.amazon.awssdk:core:2.20.13")
     implementation("software.amazon.awssdk:dynamodb:2.20.13")
     implementation("software.amazon.awssdk:regions:2.20.13")
     implementation("software.amazon.awssdk:auth:2.20.13")
-
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.mysql:mysql-connector-j")

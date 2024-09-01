@@ -8,12 +8,10 @@ $(function() {
     });
 });
 
-// Highlight the top nav as scrolling occurs
 $('body').scrollspy({
     target: '.navbar-fixed-top'
 })
 
-// Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
@@ -31,5 +29,56 @@ $(document).ready(function () {
             }, 120);
         };
     })(jQuery);
+
     $("#writeText").writeText(introHead);
+
+    $('#contactForm').submit(function(event) {
+        event.preventDefault();
+
+        const name = $('#name').val().trim();
+        const email = $('#email').val().trim();
+        const subject = $('#subject').val().trim();
+        const message = $('#message').val().trim();
+
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+        var errorMessage = '';
+        if (!name) {
+            errorMessage = nameValidateMsg;
+        } else if (!email) {
+            errorMessage = emailValidateMsg;
+        } else if (!emailPattern.test(email)) {
+            errorMessage = emailPatternErrorMsg;
+        } else if (!subject) {
+            errorMessage = subjectValidateMsg;
+        } else if (!message) {
+            errorMessage = textValidateMsg;
+        }
+
+        if (errorMessage) {
+            alert(errorMessage);
+            return;
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/sendmail',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                name: name,
+                from: email,
+                subject: subject,
+                text: message
+            }),
+            success: function(response) {
+                alert(sendSuccessMsg);
+                window.location.href = redirectUrl;
+            },
+            error: function(xhr, status, error) {
+                alert(sendFailMsg);
+                window.location.href = redirectUrl;
+            }
+        });
+    });
+
 });
