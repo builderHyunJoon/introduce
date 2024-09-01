@@ -35,6 +35,9 @@ $(document).ready(function () {
     $('#contactForm').submit(function(event) {
         event.preventDefault();
 
+        const $submitButton = $(this).find('button[type="submit"]');
+        $submitButton.prop('disabled', true);
+
         const name = $('#name').val().trim();
         const email = $('#email').val().trim();
         const subject = $('#subject').val().trim();
@@ -57,6 +60,7 @@ $(document).ready(function () {
 
         if (errorMessage) {
             alert(errorMessage);
+            $submitButton.prop('disabled', false);
             return;
         }
 
