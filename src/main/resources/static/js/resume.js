@@ -31,5 +31,5 @@ $(document).ready(function () {
             }, 120);
         };
     })(jQuery);
-    $("#writeText").writeText("주니어 백엔드 개발자, 최현준입니다.");
+    $("#writeText").writeText(introHead);
 });

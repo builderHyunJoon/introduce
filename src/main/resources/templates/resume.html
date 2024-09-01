@@ -9,7 +9,7 @@
         gtag('config', 'G-NJ1GSCS8B4');
     </script>
     <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
-    <title>Joon's resume</title>
+    <title th:text="${dynamo.titleName}"></title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
@@ -20,17 +20,16 @@
 </head>
 
 <body id="page-top">
-
 <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
     <div class="container">
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Joon's resume</a>
+            <a class="navbar-brand page-scroll" href="#page-top" th:text="${dynamo.titleName}"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -38,32 +37,21 @@
                 <li class="hidden active">
                     <a href="#page-top"></a>
                 </li>
-                <li class="">
-                    <a class="page-scroll" href="#profile">Profile</a>
-                </li>
-                <li class="">
-                    <a class="page-scroll" href="#license">License</a>
-                </li>
-                <li class="">
-                    <a class="page-scroll" href="#career">Career</a>
-                </li>
-                <li class="">
-                    <a class="page-scroll" href="#portfolio">Portfolio</a>
-                </li>
-                <li class="">
-                    <a class="page-scroll" href="#contact">Contact</a>
+                <li th:each="menu : ${dynamo.menuName}" class="">
+                    <a class="page-scroll" th:href="'#' + ${menu}" th:text="${menu}"></a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
+<!--header-->
 <header>
     <div class="container">
         <div class="intro-text">
-            <div class="intro-lead-in">안녕하세요. 방문해주셔서 감사합니다.</div>
+            <div class="intro-lead-in" th:text="${dynamo.intro['lead']}"></div>
             <div id="writeText" class="intro-heading"></div>
-            <a href="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/resume/%EC%B5%9C%ED%98%84%EC%A4%80_%EB%AC%B8%EC%84%9C%ED%86%B5%ED%95%A9.zip" class="btn btn-xl">Download resume</a>
+            <a class="btn btn-xl" th:href="${dynamo.intro['downloadUrl']}" th:text="${dynamo.intro['btn']}"></a>
         </div>
     </div>
     <div id="app">
@@ -71,42 +59,42 @@
     </div>
 </header>
 
-<!--프로필 섹션-->
+<!--profile section-->
 <section id="profile">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-primary">Profile</h2>
-                <h3 class="section-subheading text-muted">주니어 백엔드 개발자 최현준의 프로필입니다.</h3>
+                <h2 class="section-heading text-primary" th:text="${dynamo.profile['head']}"></h2>
+                <h3 class="section-subheading text-muted" th:text="${dynamo.profile['subhead']}"></h3>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-4">
                 <div class="profile">
-                    <img src="https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/joon_photo.jpg" class="img-responsive img-circle" alt="">
-                    <h4>최 현 준</h4>
-                    <h5 class="text-muted">백엔드 & 웹 애플리케이션 개발자</h5>
-                    <p class="text-muted"><i class="bi bi-envelope"></i><strong> builder_joon@kakao.com</strong></p>
+                    <img class="img-responsive img-circle" th:src="${dynamo.profile['imgUrl']}" alt="photo">
+                    <h4 th:text="${dynamo.profile['name']}"></h4>
+                    <h5 class="text-muted" th:text="${dynamo.profile['job']}"></h5>
+                    <p class="text-muted"><i class="bi bi-envelope"></i><strong th:text="${dynamo.profile['email']}"></strong></p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="https://github.com/h311diver/portfolio" target="_blank"><i class="bi bi-git"></i></a>
+                        <li><a th:href="${dynamo.profile['gitUrl']}" target="_blank"><i class="bi bi-git"></i></a>
                         </li>
-                        <li><a href="https://github.com/builderHyunJoon" target="_blank"><i class="bi bi-github"></i></a>
+                        <li><a th:href="${dynamo.profile['githubUrl']}" target="_blank"><i class="bi bi-github"></i></a>
                         </li>
-                        <li><a href="https://builderjoon.com" target="_blank"><i class="bi bi-house-door"></i></a>
+                        <li><a th:href="${dynamo.profile['homeUrl']}" target="_blank"><i class="bi bi-house-door"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-8">
-                <h3 class="text-primary">List of Technologies and Tools Used / Experienced</h3>
+                <h3 class="text-primary" th:text="${dynamo.profile['toolHead']}"></h3>
                 <div class="col-12 col-md-6">
-                    <div th:each="usedTool : ${usedToolList.subList(0, 7)}">
+                    <div th:each="usedTool : ${usedToolList.subList(0, 8)}">
                         <h4 th:text="'ㆍ' + ${usedTool.usedToolCategory}"></h4>
                         <p class="text-muted" th:text="${usedTool.usedToolName}"></p>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div th:each="usedTool : ${usedToolList.subList(8, 15)}">
+                    <div th:each="usedTool : ${usedToolList.subList(8, 16)}">
                         <h4 th:text="'ㆍ' + ${usedTool.usedToolCategory}"></h4>
                         <p class="text-muted" th:text="${usedTool.usedToolName}"></p>
                     </div>
@@ -116,14 +104,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="col-12 col-md-4">
-                    <h3 class="text-primary">Experience</h3>
+                    <h3 class="text-primary" th:text="${dynamo.profile['experienceHead']}"></h3>
                     <div th:each="experience : ${experienceList}">
                         <h4 th:text="'ㆍ' + ${experience.experiencePeriod}"></h4>
                         <p class="text-muted" th:text="${experience.experienceName}"></p>
                     </div>
                 </div>
                 <div class="col-12 col-md-8">
-                    <h3 class="text-primary">Introduction</h3>
+                    <h3 class="text-primary" th:text="${dynamo.profile['introductionHead']}"></h3>
                     <div th:each="introduction : ${introductionList}">
                         <h4 th:text="'ㆍ' + ${introduction.introductionTitle}"></h4>
                         <p class="text-muted" th:text="${introduction.introductionExplain}"></p>
@@ -134,34 +122,34 @@
     </div>
 </section>
 
-<!--자격증 섹션-->
+<!--license section-->
 <section id="license" class="bg-light-gray">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-primary">License</h2>
-                <h3 class="section-subheading text-muted">보유한 자격증 목록과 정보입니다.</h3>
+                <h2 class="section-heading text-primary" th:text="${dynamo.license['head']}"></h2>
+                <h3 class="section-subheading text-muted" th:text="${dynamo.license['subhead']}"></h3>
             </div>
         </div>
         <div class="row text-center">
             <div class="col-md-3" th:each="license : ${licenseList}">
                 <i class="bi bi-award-fill"></i>
                 <h4 class="license-heading" th:text="${license.licenseName}"></h4>
-                <p class="text-muted"><strong>취득일자: </strong><span th:text="${license.licenseAcquireDate}"></span></p>
-                <p class="text-muted"><strong>자격번호: </strong><span th:text="${license.licenseNumber}"></span></p>
-                <p class="text-muted"><strong>비고: </strong><span th:text="${license.licenseExplain}"></span></p>
+                <p class="text-muted"><strong th:text="${license.licenseAcquireDate}"></strong></p>
+                <p class="text-muted"><strong th:text="${license.licenseAcquireDate}"></strong></p>
+                <p class="text-muted"><strong th:text="${license.licenseAcquireDate}"></strong></p>
             </div>
         </div>
     </div>
 </section>
 
-<!--경력 기술 세션-->
+<!--career section-->
 <section id="career">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-primary">Career</h2>
-                <h3 class="section-subheading text-muted">개발자로서의 꿈을 가지고 교육을 받은 시점부터 현재까지의 경력을 기술한 내용입니다.</h3>
+                <h2 class="section-heading text-primary" th:text="${dynamo.career['head']}"></h2>
+                <h3 class="section-subheading text-muted" th:text="${dynamo.career['subhead']}"></h3>
             </div>
         </div>
         <div class="row">
@@ -174,7 +162,7 @@
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4 th:text="${career.careerPeriod}"></h4>
-                                <h4 class="subheading" th:text="${career.careerTitle}">)</h4>
+                                <h4 class="subheading" th:text="${career.careerTitle}"></h4>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted" th:text="${career.careerExplain}"></p>
@@ -183,7 +171,7 @@
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
-                            <h4><br>Onward...</h4>
+                            <h4 th:utext="${dynamo.career['last']}"></h4>
                         </div>
                     </li>
                 </ul>
@@ -192,13 +180,13 @@
     </div>
 </section>
 
-<!--포트폴리오 섹션-->
+<!--portfolio section-->
 <section id="portfolio" class="bg-light-gray">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-primary">Portfolio</h2>
-                <h3 class="section-subheading text-muted">현재까지 참여한 프로젝트와 사용 기술을 정리한 내용입니다.<br>이미지를 클릭 시 상세 설명을 확인하실 수 있습니다.</h3>
+                <h2 class="section-heading text-primary" th:text="${dynamo.portfolio['head']}"></h2>
+                <h3 class="section-subheading text-muted" th:utext="${dynamo.portfolio['subhead']}"></h3>
             </div>
         </div>
         <div class="row">
@@ -220,14 +208,14 @@
     </div>
 </section>
 
-<!--이메일 발송 섹션-->
+<!--contact section-->
 <section id="contact">
     <canvas id="bg-canvas-contact"></canvas>
     <div class="container contact-content">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Contact Me</h2>
-                <h3 class="section-subheading">Google SMTP를 통해 builder_joon@kakao.com 으로 메일이 발송됩니다.</h3>
+                <h2 class="section-heading" th:text="${dynamo.contact['head']}"></h2>
+                <h3 class="section-subheading" th:text="${dynamo.contact['subhead']}"></h3>
             </div>
         </div>
         <div class="row">
@@ -257,7 +245,7 @@
                         <div class="clearfix"></div>
                         <div class="col-lg-12 text-center">
                             <div id="success"></div>
-                            <button type="submit" class="btn btn-xl">Send Email</button>
+                            <button type="submit" class="btn btn-xl" th:text="${dynamo.contact['btn']}"></button>
                         </div>
                     </div>
                 </form>
@@ -266,31 +254,32 @@
     </div>
 </section>
 
+<!--footer-->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <ul class="list-inline">
-                    <li><span class="copyright"><i class="bi bi-c-circle"></i> 2024 builderjoon.com</span></li>
-                    <li><span class="copyright"><i class="bi bi-envelope"></i> builder_joon@kakao.com</span></li>
+                    <li><i class="bi bi-c-circle"></i><span class="copyright" th:text="${dynamo.profile['copyright']}"></span></li>
+                    <li><i class="bi bi-envelope"></i><span class="copyright" th:text="${dynamo.profile['email']}"></span></li>
                 </ul>
 
             </div>
             <div class="col-md-4">
                 <ul class="list-inline social-buttons">
-                    <li><a href="https://github.com/h311diver/portfolio" target="_blank"><i class="bi bi-git"></i></a>
+                    <li><a th:href="${dynamo.profile['gitUrl']}" target="_blank"><i class="bi bi-git"></i></a>
                     </li>
-                    <li><a href="https://github.com/builderHyunJoon" target="_blank"><i class="bi bi-github"></i></a>
+                    <li><a th:href="${dynamo.profile['githubUrl']}" target="_blank"><i class="bi bi-github"></i></a>
                     </li>
-                    <li><a href="https://builderjoon.com" target="_blank"><i class="bi bi-house-door"></i></a>
+                    <li><a th:href="${dynamo.profile['homeUrl']}" target="_blank"><i class="bi bi-house-door"></i></a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <ul class="list-inline quicklinks">
-                    <li><a href="#">Send SMS to me</a>
+                    <li><a href="#">Test</a>
                     </li>
-                    <li><a href="#">Send kakaotalk to me</a>
+                    <li><a href="#">Test</a>
                     </li>
                 </ul>
             </div>
@@ -298,7 +287,7 @@
     </div>
 </footer>
 
-<!--참여 프로젝트 상세 정보 모달창-->
+<!--project modal-->
 <div  th:each="portfolio, iterStat : ${portfolioList}">
     <div class="portfolio-modal modal fade" th:id="'portfolioModal' + ${iterStat.count}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
@@ -341,6 +330,9 @@
     </div>
 </div>
 
+<script th:inline="javascript">
+    const introHead = /*[[${dynamo.intro['head']}]]*/ '';
+</script>
 <script th:src="@{/js/resume.js}"></script>
 <script type="module" th:src="@{/js/bokeh.js}"></script>
 <script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/jquery-1.11.0.js"></script>
