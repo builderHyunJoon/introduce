@@ -7,17 +7,17 @@ import org.springframework.context.annotation.Configuration;
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
+import software.amazon.awssdk.services.ses.SesClient;
 
 @Configuration
 @RequiredArgsConstructor
-public class DynamoConfig {
+public class AwsSesConfig {
 
     private final StaticCredentialsProvider awsCredentialsProvider;
 
     @Bean
-    public DynamoDbClient dynamoDbClient() {
-        return DynamoDbClient.builder()
+    public SesClient sesClient() {
+        return SesClient.builder()
                 .region(Region.AP_NORTHEAST_2)
                 .credentialsProvider(awsCredentialsProvider)
                 .build();
