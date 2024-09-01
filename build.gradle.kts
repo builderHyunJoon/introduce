@@ -28,6 +28,12 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-mail")
+
+    // AWS SDK for DynamoDB
+    implementation("software.amazon.awssdk:dynamodb:2.20.13")
+    implementation("software.amazon.awssdk:regions:2.20.13")
+    implementation("software.amazon.awssdk:auth:2.20.13")
+
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.mysql:mysql-connector-j")
@@ -42,13 +48,11 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-// 기본 JAR 파일 생성 방지
 tasks.getByName<Jar>("jar") {
     enabled = false
 }
 
-// bootJar 설정
 tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
-    archiveBaseName.set("introduce")  // 생성되는 JAR 파일 이름 설정
+    archiveBaseName.set("introduce")
     archiveVersion.set("0.0.1-SNAPSHOT")
 }
