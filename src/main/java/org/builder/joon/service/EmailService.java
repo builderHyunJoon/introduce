@@ -2,6 +2,8 @@ package org.builder.joon.service;
 
 import lombok.RequiredArgsConstructor;
 import org.builder.joon.dto.MailMessageDto;
+import org.builder.joon.entity.EmailEntity;
+import org.builder.joon.repository.EmailRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -26,6 +28,8 @@ public class EmailService {
 
 	private final JavaMailSender javaMailSender;
 
+	private final EmailRepository emailRepository;
+
 	public void sendEmailWithGoogleSMTP(MailMessageDto mailMessageDto) {
 		log.info("send email with Google SMTP... messageDto: {}", mailMessageDto);
 		SimpleMailMessage message = new SimpleMailMessage();
@@ -34,6 +38,7 @@ public class EmailService {
 		message.setSubject(mailMessageDto.getName() + ": " + mailMessageDto.getSubject());
 		message.setText(mailMessageDto.getText());
 		javaMailSender.send(message);
+		emailRepository.save(EmailEntity.toEntity(mailMessageDto));
 	}
 
 	public void sendEmailWithAwsSES(MailMessageDto mailMessageDto) {
