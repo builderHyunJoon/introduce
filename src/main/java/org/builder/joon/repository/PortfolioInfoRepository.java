@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 
-public interface PortfolioInfoRepository extends JpaRepository<PortfolioInfoEntity, Long> {
+public interface PortfolioInfoRepository extends JpaRepository<PortfolioInfoEntity, String> {
     List<PortfolioInfoEntity> findAllByOrderByPortfolioIdxAsc();
 }
