@@ -133,7 +133,6 @@
                 <h4 class="license-heading" th:text="${license.licenseName}"></h4>
                 <p class="text-muted"><strong th:text="${license.licenseAcquireDate}"></strong></p>
                 <p class="text-muted"><strong th:text="${license.licenseNumber}"></strong></p>
-                <p class="text-muted"><strong th:text="${license.licenseExplain}"></strong></p>
             </div>
         </div>
     </div>
@@ -254,14 +253,13 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <ul class="list-inline">
                     <li><i class="bi bi-c-circle"></i><span class="copyright" th:text="${dynamo.profile['copyright']}"></span></li>
                     <li><i class="bi bi-envelope"></i><span class="copyright" th:text="${dynamo.profile['email']}"></span></li>
                 </ul>
-
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <ul class="list-inline social-buttons">
                     <li><a th:href="${dynamo.profile['gitUrl']}" target="_blank"><i class="bi bi-git"></i></a>
                     </li>
@@ -271,12 +269,9 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <ul class="list-inline quicklinks">
-                    <li><a href="#">Test</a>
-                    </li>
-                    <li><a href="#">Test</a>
-                    </li>
+                    <li><a th:href="${dynamo.profile['viewSaraminResumUrl']}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> <span th:text="${dynamo.profile['viewResumBtn']}"></span></a></li>
                 </ul>
             </div>
         </div>
@@ -303,12 +298,6 @@
                                 <img class="img-responsive img-centered" th:src="${img.portfolioImgUrl}" th:alt="${img.portfolioImgAlt}">
                             </div>
                             <p class="item-explain" th:utext="${portfolio.portfolioExplain}"></p>
-                            <div th:if="${portfolio.portfolioReferenceUrlInfoDtoList.size() > 0}">
-                                <p class="item-explain reference" th:each="ref : ${portfolio.portfolioReferenceUrlInfoDtoList}">
-                                    <strong th:text="${ref.portfolioReferenceTitle} + ': '"></strong>
-                                    <a target="_blank" th:href="${ref.portfolioReferenceUrl}" th:text="${ref.portfolioReferenceUrl}"></a>
-                                </p>
-                            </div>
                             <ul class="list-block">
                                 <li th:each="tool : ${portfolio.portfolioToolInfoDtoList}">
                                     <strong th:text="${tool.portfolioToolCategory} + ': '"></strong>
