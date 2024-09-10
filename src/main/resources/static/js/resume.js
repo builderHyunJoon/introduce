@@ -26,7 +26,7 @@ $(document).ready(function () {
                 if (current < contentArray.length) {
                     elem.text(elem.text() + contentArray[current++]);
                 }
-            }, 120);
+            }, 150);
         };
     })(jQuery);
 
@@ -34,7 +34,7 @@ $(document).ready(function () {
 
     $('#contactForm').submit(function(event) {
         event.preventDefault();
-
+        event.stopPropagation();
         const $submitButton = $(this).find('button[type="submit"]');
         $submitButton.prop('disabled', true);
 
@@ -42,7 +42,6 @@ $(document).ready(function () {
         const email = $('#email').val().trim();
         const subject = $('#subject').val().trim();
         const message = $('#message').val().trim();
-
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
         var errorMessage = '';
@@ -64,6 +63,9 @@ $(document).ready(function () {
             return;
         }
 
+        $submitButton.addClass('loading');
+        $submitButton.attr('disabled', 'disabled');
+
         $.ajax({
             type: 'POST',
             url: '/api/sendmail',
@@ -76,10 +78,14 @@ $(document).ready(function () {
             }),
             success: function(response) {
                 alert(sendSuccessMsg);
+                $submitButton.removeClass('loading');
+                $submitButton.removeAttr('disabled');
                 window.location.href = redirectUrl;
             },
             error: function(xhr, status, error) {
                 alert(sendFailMsg);
+                $submitButton.removeClass('loading');
+                $submitButton.removeAttr('disabled');
                 window.location.href = redirectUrl;
             }
         });

@@ -240,7 +240,7 @@
                         <div class="clearfix"></div>
                         <div class="col-lg-12 text-center">
                             <div id="success"></div>
-                            <button type="submit" class="btn btn-xl" th:text="${dynamo.contact['btn']}"></button>
+                            <button type="submit" th:data-label="${dynamo.contact['btn']}" class="send-email-btn" th:text="${dynamo.contact['btn']}"></button>
                         </div>
                     </div>
                 </form>
