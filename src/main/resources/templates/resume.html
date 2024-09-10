@@ -47,7 +47,7 @@
         <div class="intro-text">
             <div class="intro-lead-in" th:text="${dynamo.intro['lead']}"></div>
             <div id="writeText" class="intro-heading"></div>
-            <a class="btn btn-xl" th:href="${dynamo.intro['downloadUrl']}" th:text="${dynamo.intro['btn']}"></a>
+            <a class="btn btn-xl" th:href="${dynamo.intro['introUrl']}" target="_blank"><span th:text="${dynamo.intro['introBtn']} + ' '"></span></a>
         </div>
     </div>
     <div id="app">
