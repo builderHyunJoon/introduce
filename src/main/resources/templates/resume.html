@@ -47,7 +47,7 @@
         <div class="intro-text">
             <div class="intro-lead-in" th:text="${dynamo.intro['lead']}"></div>
             <div id="writeText" class="intro-heading"></div>
-            <a class="btn btn-xl" th:href="${dynamo.intro['introUrl']}" target="_blank"><span th:text="${dynamo.intro['introBtn']} + ' '"></span></a>
+            <a class="btn btn-xl page-scroll" th:href="${dynamo.intro['introUrl']}"><span th:text="${dynamo.intro['introBtn']}"></span></a>
         </div>
     </div>
     <div id="app">
@@ -271,7 +271,7 @@
             </div>
             <div class="col-md-5">
                 <ul class="list-inline quicklinks">
-                    <li><a th:href="${dynamo.profile['viewResumUrl']}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> <span th:text="${dynamo.profile['viewResumBtn']}"></span></a></li>
+                    <li><a th:href="${dynamo.profile['viewResumUrl']}" target="_blank"><i class="bi bi-link-45deg"></i> <span th:text="${dynamo.profile['viewResumBtn']}"></span></a></li>
                 </ul>
             </div>
         </div>
