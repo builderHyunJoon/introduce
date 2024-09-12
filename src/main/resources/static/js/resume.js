@@ -26,7 +26,7 @@ $(document).ready(function () {
                 if (current < contentArray.length) {
                     elem.text(elem.text() + contentArray[current++]);
                 }
-            }, 120);
+            }, 100);
         };
     })(jQuery);
 
