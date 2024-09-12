@@ -24,6 +24,7 @@ public class WebController {
     private final LicenseInfoService licenseInfoService;
     private final UsedToolInfoService usedToolInfoService;
     private final PortfolioInfoService portfolioInfoService;
+    private final DynamoService dynamoService;
 
     @GetMapping("/")
     public String redirectToMain(HttpServletRequest request) {
@@ -35,7 +36,7 @@ public class WebController {
 
     @GetMapping("/resume")
     public String mainWeb(Model model) throws Exception {
-
+        model.addAttribute("dynamo", dynamoService.scanDynamo().get(0));
         model.addAttribute("careerList", careerInfoService.getAllCareers());
         model.addAttribute("experienceList", experienceInfoService.getAllExperiences());
         model.addAttribute("introductionList", introductionInfoService.getAllIntroductions());

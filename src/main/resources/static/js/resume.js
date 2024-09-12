@@ -8,12 +8,10 @@ $(function() {
     });
 });
 
-// Highlight the top nav as scrolling occurs
 $('body').scrollspy({
     target: '.navbar-fixed-top'
 })
 
-// Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
@@ -28,8 +26,69 @@ $(document).ready(function () {
                 if (current < contentArray.length) {
                     elem.text(elem.text() + contentArray[current++]);
                 }
-            }, 120);
+            }, 150);
         };
     })(jQuery);
-    $("#writeText").writeText("주니어 백엔드 개발자, 최현준입니다.");
+
+    $("#writeText").writeText(introHead);
+
+    $('#contactForm').submit(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const $submitButton = $(this).find('button[type="submit"]');
+        $submitButton.prop('disabled', true);
+
+        const name = $('#name').val().trim();
+        const email = $('#email').val().trim();
+        const subject = $('#subject').val().trim();
+        const message = $('#message').val().trim();
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+        var errorMessage = '';
+        if (!name) {
+            errorMessage = nameValidateMsg;
+        } else if (!email) {
+            errorMessage = emailValidateMsg;
+        } else if (!emailPattern.test(email)) {
+            errorMessage = emailPatternErrorMsg;
+        } else if (!subject) {
+            errorMessage = subjectValidateMsg;
+        } else if (!message) {
+            errorMessage = textValidateMsg;
+        }
+
+        if (errorMessage) {
+            alert(errorMessage);
+            $submitButton.prop('disabled', false);
+            return;
+        }
+
+        $submitButton.addClass('loading');
+        $submitButton.attr('disabled', 'disabled');
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/sendmail',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                name: name,
+                from: email,
+                subject: subject,
+                text: message
+            }),
+            success: function(response) {
+                alert(sendSuccessMsg);
+                $submitButton.removeClass('loading');
+                $submitButton.removeAttr('disabled');
+                window.location.href = redirectUrl;
+            },
+            error: function(xhr, status, error) {
+                alert(sendFailMsg);
+                $submitButton.removeClass('loading');
+                $submitButton.removeAttr('disabled');
+                window.location.href = redirectUrl;
+            }
+        });
+    });
+
 });
