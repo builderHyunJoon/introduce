@@ -1,6 +1,5 @@
 package org.builder.joon.controller;
 
-import com.sun.source.tree.TryTree;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.builder.joon.dto.MailMessageDto;
