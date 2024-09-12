@@ -3,14 +3,11 @@ package org.builder.joon.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.builder.joon.dto.*;
 import org.builder.joon.entity.VisitorInfoEntity;
 import org.builder.joon.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
 
 @Slf4j
 @Controller
