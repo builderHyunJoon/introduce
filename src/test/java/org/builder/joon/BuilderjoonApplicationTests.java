@@ -13,14 +13,14 @@ import java.util.List;
 @SpringBootTest
 class BuilderjoonApplicationTests {
 
-	@Autowired
+/*	@Autowired
     private EmailService sendEmailService;
 
 	@Autowired
 	private PortfolioInfoService portfolioInfoService;
 
 	@Autowired
-	private DynamoService dynamoService;
+	private DynamoService dynamoService;*/
 
 /*	@Test
 	void smtpTest() {

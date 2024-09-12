@@ -43,7 +43,6 @@ public class WebController {
         model.addAttribute("licenseList", licenseInfoService.getAllLicenses());
         model.addAttribute("usedToolList", usedToolInfoService.getAllUsedTools());
         model.addAttribute("portfolioList", portfolioInfoService.getAllPortfoliosWithAllData());
-
         return "resume";
     }
 }
