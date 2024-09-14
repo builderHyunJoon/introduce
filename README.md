@@ -1,10 +1,5 @@
-<br>
 
-# [https://builderjoon.com (홈페이지)](https://builderjoon.com)
-
-<br>
-
-## 개인을 소개하기 위한 포트폴리오 웹사이트 구축.
+## 개인을 소개하기 위한 포트폴리오 웹사이트.
 
 ![builderjoon_readme_main](https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/builderjoon_readme.png)
 
