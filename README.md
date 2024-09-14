@@ -5,10 +5,6 @@
 
 ---
 
-![builderjoon_readme_main](https://builderjoons3.s3.ap-northeast-2.amazonaws.com/images/builderjoon_mobile.png)
-
----
-
 ### 사용한 기술 스택 / 툴 목록
 - **Programming Language:** Java17, JS
 - **Framework:** Spring Boot
